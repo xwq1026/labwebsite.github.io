@@ -1,0 +1,720 @@
+/* ================================== 全局样式 ================================== /
+/* 设置全局字体、背景颜色、文字颜色等基本样式 */
+body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif; /* 英文用 Inter，中文用 Noto Sans SC */
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 重置一些默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================== 标题样式 ================================== */
+/* 标题字体样式 */
+h1, h2, h3 {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-weight: 600; /* 加粗 */
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 为页面大标题（h2）添加底部分隔线 */
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ddd;  /* 浅色分隔线 */
+}
+
+/* ================================== 导航栏样式 ================================== */
+/* 导航栏背景颜色、固定位置等样式 */
+nav {
+    background-color: #222;
+    padding: 15px 0;  /* 增加高度，防止紧贴 */
+    position: fixed;  /* 让导航栏固定在页面顶部 */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* 导航栏列表样式 */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* 导航栏列表项样式 */
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+/* 导航栏链接样式 */
+nav ul li a {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease; /* 添加平滑过渡 */
+}
+
+/* 移动端导航栏适配 */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 0;
+        background-color: #333;
+        border-radius: 8px;
+        margin: 10px;
+    }
+    
+    nav ul li {
+        display: block;
+        margin: 3px 0;
+        border-radius: 4px;
+    }
+    
+    nav ul li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 12px 20px;
+        background-color: transparent;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+        background-color: #ea52bd;
+        transform: translateX(5px);
+    }
+    
+    nav ul li a.active {
+        background-color: #ea52bd;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(234, 82, 189, 0.4);
+    }
+    
+    #lab-banner {
+        margin-top: 10px;
+    }
+}
+
+/* 导航栏链接悬停样式 */
+nav ul li a:hover {
+    background-color: #ea52bd; 
+    text-decoration: underline;
+}
+
+/* 导航栏活动链接样式 */
+nav ul li a.active {
+    background-color: #ea52bd; 
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* 导航栏图标样式 */
+nav ul li a i {
+    margin-right: 5px; /* 图标和文字之间的间隔 */
+    font-size: 1.5rem;  /* 调整图标大小 */
+}
+
+/* ================================== 头部样式 ================================== */
+/* 头部背景颜色、文字颜色、居中对齐等样式 */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ================================== 实验室横幅样式 ================================== */
+/* 实验室横幅背景渐变、间距、圆角等样式 */
+#lab-banner {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa); /* 渐变背景 */
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px; /* 使 Banner 远离导航栏 */
+    box-shadow: none; /* 移除阴影，防止出现深色线 */
+    margin-bottom: 20px; /* 调整间距，使过渡更自然 */
+    border-radius: 8px; /* 保持圆角效果 */
+    border-bottom: none; /* 确保没有底部边框 */
+    position: relative;
+}
+
+/* 实验室横幅标题样式 */
+#lab-banner h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 实验室横幅描述文本样式 */
+#lab-banner p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* 确保伪元素不会影响底部 */
+#lab-banner::after {
+    content: none; /* 移除可能导致底部分割线的伪元素 */
+}
+
+/* ================================== 首页内容样式 ================================== */
+/* 首页内容部分图片和文本并排显示样式 */
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 设置为居中对齐 */
+    margin-bottom: 30px;
+}
+
+/* 首页内容部分图片样式 */
+.home-section img {
+    width: 45%;  /* 设置图片最大宽度 */
+    height: auto; /* 确保高度按比例自动调整 */
+    object-fit: cover; /* 保持图片完整性，避免拉伸 */
+    margin: 0 10px; /* 为图片之间增加间隔 */
+}
+
+/* ================================== 关于我们部分样式 ================================== */
+/* 关于我们部分背景颜色、间距、阴影等样式 */
+#home {
+    padding: 30px;
+    background-color: #fff;
+    text-align: center;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* 使用 flexbox 布局 */
+    flex-direction: column; /* 设置为垂直排列 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* 关于我们部分标题样式 */
+#home h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 关于我们部分段落样式 */
+#home p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* ================================== 图片画廊样式 ================================== */
+/* 图片画廊 flexbox 布局、居中对齐、间距等样式 */
+.image-gallery {
+    display: flex; /* 使用 flexbox 布局 */
+    justify-content: center; /* 居中对齐图片 */
+    gap: 15px; /* 设置图片间距 */
+}
+
+/* 图片画廊图片样式 */
+.image-gallery img {
+    width: 30%; /* 图片宽度设置为 30% */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* 确保图片按比例缩放 */
+}
+
+/* ================================== 研究部分样式 ================================== */
+/* 研究部分背景颜色、间距、阴影等样式 */
+#research {
+    padding: 30px;
+    background-color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 研究部分标题样式 */
+#research h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 研究部分段落样式 */
+#research p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* 研究部分子标题样式 */
+#research h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* 研究部分列表样式 */
+#research ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #666;
+}
+
+/* 研究部分列表项样式 */
+#research ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* ================================== 人员部分样式 ================================== */
+/* 人员部分背景颜色、间距、阴影等样式 */
+#people {
+    padding: 30px;
+    background-color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 人员部分标题样式 */
+#people h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 人员部分子标题样式 */
+#people h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 每个成员的容器样式 */
+.person {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;  /* 在每个成员之间添加分隔线 */
+    padding-bottom: 20px;
+}
+
+/* 成员标题样式 */
+.person h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* 人物信息和照片容器样式 */
+.person-content {
+    display: flex;
+    align-items: flex-start; /* 确保照片和文字对齐 */
+}
+
+/* 人物照片样式 */
+.person-photo {
+    margin-right: 20px; /* 照片与简介之间的间隔 */
+}
+
+/* 人物照片图片样式 */
+.person-photo img {
+    width: 150px;  /* 增大图片的宽度 */
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* 为图片添加阴影 */
+}
+
+/* 人物信息样式 */
+.person-info {
+    flex-grow: 1; /* 确保简介文字占据剩余空间 */
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;  /* 改进段落之间的间距 */
+}
+
+/* 人员部分段落首行缩进 */
+#people .person-info p {
+    text-indent: 2em; /* 设置首行缩进2字符 */
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 分隔线样式 */
+.separator {
+    border: 0;
+    border-top: 1px solid #ddd;  /* 设置浅色分隔线 */
+    margin: 10px 0;
+}
+
+/* 人员部分响应式调整 */
+@media (max-width: 768px) {
+    .person-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .person-photo {
+        margin-right: 0;  /* 在小屏幕下，移除照片与文字之间的右边距 */
+        margin-bottom: 10px;  /* 确保图片与文字之间有间距 */
+    }
+
+    .person-photo img {
+        width: 80%;  /* 在小屏幕下，图片宽度调整 */
+    }
+
+    .person-info {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ================================== 实验室活动部分样式 ================================== */
+/* 实验室活动部分背景颜色、间距、阴影等样式 */
+#lab-events {
+    padding: 30px;
+    background-color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 实验室活动部分标题样式 */
+#lab-events h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 活动画廊网格布局、间距等样式 */
+.event-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 每行显示六张图片 */
+    gap: 15px; /* 图片之间的间隔 */
+    padding: 10px 0;
+}
+
+/* 活动照片容器样式 */
+.event-photo {
+    width: 100%; /* 确保图片容器宽度一致 */
+    height: 200px; /* 设置图片容器的高度，可根据需要调整 */
+    overflow: hidden; /* 隐藏超出容器的部分 */
+}
+
+/* 活动照片图片样式 */
+.event-photo img {
+    width: 100%; /* 图片宽度填满容器 */
+    height: 100%; /* 图片高度填满容器 */
+    object-fit: cover; /* 保持图片的完整性，避免拉伸 */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 实验室活动部分响应式设计 */
+@media (max-width: 1024px) {
+    .event-gallery {
+        grid-template-columns: repeat(5, 1fr); /* 中等设备上每行显示5张图片 */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-gallery {
+        grid-template-columns: repeat(4, 1fr); /* 小设备上每行显示4张图片 */
+    }
+}
+
+@media (max-width: 480px) {
+    .event-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 超小设备上每行显示2张图片 */
+    }
+}
+
+/* ================================== 出版物部分样式 ================================== */
+/* 出版物部分背景颜色、间距、阴影等样式 */
+#publications {
+    padding: 30px;
+    background-color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 出版物部分标题样式 */
+#publications h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 出版物部分子标题样式 */
+#publications h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 出版物部分小标题样式 */
+#publications h4 {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* 出版物项样式 */
+.publication-item {
+    font-size: 1.1rem;
+    color: #666;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 出版物项交替行背景颜色，提高可读性 */
+.publication-item:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray background for even rows */
+}
+
+.publication-item:nth-child(odd) {
+    background-color: #fff; /* White background for odd rows */
+}
+
+/* 出版物项下载链接样式 */
+.publication-item a {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* 出版物项下载链接悬停样式 */
+.publication-item a:hover {
+    text-decoration: underline;
+}
+
+/* 出版物项箭头图标样式 */
+.publication-item a i {
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+/* ================================== 教学部分样式 ================================== */
+/* 教学部分背景颜色、间距、阴影等样式 */
+#teaching {
+    padding: 30px;
+    background-color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 教学部分标题样式 */
+#teaching h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 每位讲师的部分样式 */
+.teacher h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 讲师列表样式 */
+.teacher ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* 讲师列表项样式 */
+.teacher ul li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* ================================== 联系我们部分样式 ================================== */
+/* 联系我们部分背景颜色、间距、阴影等样式 */
+#contact-us {
+    padding: 30px;
+    background-color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 联系我们部分标题样式 */
+#contact-us h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 精准定位Contact Us区域，提升优先级 */
+section#contact-us {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 文字左、图片右 */
+    align-items: flex-start;       /* 内容顶部对齐 */
+    padding: 30px;
+    background-color: #fff;
+    margin: 20px auto;             /* 居中显示（可选） */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;             /* 限制最大宽度，防止内容过宽 */
+    width: 100%;
+}
+
+/* 文字信息容器：占主要空间 */
+section#contact-us .contact-info {
+    flex: 1;                       /* 占据剩余空间 */
+    margin-right: 40px;            /* 与图片保持间距 */
+    min-width: 250px;              /* 防止文字过窄 */
+}
+
+/* 图片容器：固定占比 */
+section#contact-us .word-cloud {
+    flex: 0 0 30%;                 /* 图片占30%宽度 */
+    max-width: 300px;              /* 限制图片最大宽度 */
+    text-align: center;
+}
+
+/* 图片自适应 */
+section#contact-us .word-cloud img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 联系我们部分小屏幕适配（手机端） */
+@media (max-width: 768px) {
+    section#contact-us {
+        flex-direction: column;    /* 垂直排列 */
+    }
+    section#contact-us .word-cloud {
+        width: 100%;
+        margin-top: 20px;
+    }
+    section#contact-us .contact-info {
+        margin-right: 0;
+    }
+}
+
+/* ================================== 通用响应式样式增强 ================================== */
+/* 首页内容部分响应式调整 */
+@media (max-width: 768px) {
+    .home-section {
+        flex-direction: column;
+    }
+    
+    .home-section img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* 研究部分响应式调整 */
+@media (max-width: 768px) {
+    #research {
+        padding: 20px 15px;
+    }
+    
+    #research h2 {
+        font-size: 1.8rem;
+    }
+    
+    #research p, #research h3 {
+        font-size: 1rem;
+    }
+}
+
+/* 出版物部分响应式调整 */
+@media (max-width: 768px) {
+    #publications {
+        padding: 20px 15px;
+    }
+    
+    .publication-item {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1rem;
+        padding: 15px 0;
+    }
+    
+    .publication-item a {
+        margin-top: 10px;
+    }
+}
+
+/* 教学部分响应式调整 */
+@media (max-width: 768px) {
+    #teaching {
+        padding: 20px 15px;
+    }
+}
+
+/* 标题和文本通用响应式调整 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* ================================== 页脚样式 ================================== */
+/* 页脚背景颜色、文字颜色、居中对齐等样式 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* ================================== 通用图片样式 ================================== */
+/* 通用图片自适应宽度、圆角、阴影等样式 */
+img {
+    width: 100%; /* 确保图片自适应宽度 */
+    height: auto; /* 自适应高度 */
+    border-radius: 8px; /* 图片圆角效果 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 图片阴影效果 */
+    object-fit: cover; /* 保持图片的完整性，避免拉伸 */
+    margin-bottom: 20px;
+}
+
+/* 通用图片悬停效果 */
+img:hover {
+    transform: scale(1.05); /* 鼠标悬停时轻微放大 */
+    transition: transform 0.3s ease; /* 平滑过渡 */
+}

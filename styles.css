@@ -750,3 +750,6 @@ img:hover {
     transform: scale(1.05); /* 鼠标悬停时轻微放大 */
     transition: transform 0.3s ease; /* 平滑过渡 */
 }
+@media (max-width: 768px) {
+  nav { outline: 5px solid red; }
+}

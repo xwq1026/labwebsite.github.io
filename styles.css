@@ -46,6 +46,36 @@ nav {
     top: 0;
     z-index: 1000;
 }
+/* 汉堡按钮：桌面端隐藏 */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: white;
+    padding: 10px;
+}
+
+/* 手机端 */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;   /* 默认收起 */
+    }
+
+    nav.open ul {
+        display: block;  /* 点汉堡后展开 */
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
 
 /* 导航栏列表样式 */
 nav ul {

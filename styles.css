@@ -105,10 +105,12 @@ nav ul li a {
 /* 移动端导航栏适配 */
 @media (max-width: 768px) {
     nav {
+        position: static;     /* ✅ 关键：覆盖 fixed */
         padding: 15px 0;
         background-color: #333;
         border-radius: 8px;
         margin: 10px;
+        width: auto;
     }
     
     nav ul li {
